@@ -95,6 +95,7 @@ class ConversationRelayHandler:
             self._closed = True
             if self.call_sid:
                 self._session_mgr.end_session(self.call_sid)
+                self._session_mgr.remove_session(self.call_sid)
 
     async def _handle_setup(self, msg: dict) -> None:
         """Process the initial ``setup`` message from Twilio."""
